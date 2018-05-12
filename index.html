@@ -1,227 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>My Resume</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal-default-theme.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.js"></script>
-    <script src="static/js/script.js"></script>
+	<title>cyang's space</title>
+
+	<style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+        }
+        body {
+            font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+            color: #333;
+        }
+        #wrapper {
+            position: absolute;
+            left: 0;
+            width: 320px;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            margin-left: -160px;
+            margin-top: -160px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        h1 {
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+            letter-spacing: 9px;
+            text-transform: uppercase;
+            margin: 12px 0;
+            left: 4px;
+        }
+        h2 {
+            color: #999;
+            font-weight: normal;
+            font-size: 15px;
+            letter-spacing: .12em;
+            margin-bottom: 30px;
+            left: 3px;
+        }
+        h1, h2 {
+            position: relative;
+        }
+        p {
+            font-size: 14px;
+            line-height: 2em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        a {
+            color: #999;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+        a:hover {
+            color: #f33;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container" id="cv">
-        <div class="side">
-            <div class="me">
-                <div class="portrait"></div>
-                <div class="remodal remodal-img" data-remodal-id="portrait-modal">
-                    <h3>请输入图片URL地址：</h3>
-                    <br/>
-                    <input type="text" id="avatar-url">
-                    <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
-                </div>
-                <h1 id="username" >cyang</h1>
-                <h4 id="persona-tag" >电子信息工程</h4>
-            </div>
-            <div class="profile info-unit">
-                <h2 class="info-header"><i class="iconfont">&#xec88;</i> <span class="info-title">基本信息</span></h2>
-                <hr>
-                <ul class="info-list">
-                    <li>
-                        <label class="left-label">姓名</label><span class="label-value">陈扬</span></li>
-                    <li>
-                        <label class="left-label">学历</label><span class="label-value">本科</span></li>
-                    <li>
-                        <label class="left-label">毕业院校</label><span class="label-value">华侨大学</span></li>
-                    <li>
-                        <label class="left-label">毕业年份</label><span class="label-value">2017</span></li>
-                </ul>
-            </div>
-            <div class="contact info-unit">
-                <h2 class="info-header"><i class="iconfont">&#xeab6;</i> <span class="info-title">联系方式</span></h2>
-                <hr>
-                <ul class="info-list">
-                    <li>
-                        <label class="left-label">手机</label><span class="label-value">155-0592-2812</span></li>
-                    <li>
-                        <label class="left-label">邮箱</label><span class="label-value">cyang812@163.com</span></li>
-                    <li>
-                        <label class="left-label">个人主页</label><span class="label-value">cyang.tech</span></li>
-                    <li>
-                        <label class="left-label">Github</label><span class="label-value">github.com/cyang812</span></li>
-                </ul>
-            </div>
-            <div class="skill info-unit">
-                <h2 class="info-header"><i class="iconfont">&#xed1d;</i> <span class="info-title">技能点</span></h2>
-                <hr>
-                <ul class="progress-list">
-                    <li>
-                        <label class="left-label">C/C++</label>
-                        <progress value="70" max="100"></progress>
-                    </li>
-                    <li>
-                        <label class="left-label">Java</label>
-                        <progress value="70" max="100"></progress>
-                    </li>
-                    <li>
-                        <label class="left-label">VHDL</label>
-                        <progress value="60" max="100"></progress>
-                    </li>
-                    <li>
-                        <label class="left-label">Python</label>
-                        <progress value="50" max="100"></progress>
-                    </li>
-                </ul>
-            </div>
-            <div class="stack info-unit">
-                <h2 class="info-header"><i class="iconfont">&#xeaa2;</i> <span class="info-title">技术栈</span></h2>
-                <hr>
-                <ul class="stack-list">
-                    <li>
-                        <label class="left-label">硬件</label><span class="label-value">STM32、8051、FPGA、Raspberry</span></li>
-                    </li>
-                    <li>
-                        <label class="left-label">软件</label><span class="label-value">Keil、IAR、Android Studio、Eclipse、Matlab、DXP</span></li>
-                    </li>
-                    <li>
-                        <label class="left-label">其它</label><span class="label-value">Linux、WordPress、Hexo</span></li>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="code info-unit">
-                <h2 class="info-header"><i class="iconfont">&#x3488;</i> <span class="info-title">个人微信</span></h2>
-                <hr>
-                <div class="weixin">
-                    <img src="static/image/weixin.png" alt="">
-
-                </div>
-            </div>
-            <div class="remodal remodal-img" data-remodal-id="weixin-modal">
-                <h3>请输入图片URL地址：</h3>
-                <br/>
-                <input type="text" id="weixin-url">
-                <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
-            </div>
-        </div>
-        <div class="main">
-            <div class="education info-unit right-list">
-                <h2 class="info-header"><i class="iconfont">&#xebca;</i> <span class="info-title">教育经历</span></h2>
-                <hr>
-                <ul class="experience-list">
-                    <li>
-                        <h3>华侨大学 - 电子信息工程专业（本科）2013-2017</h3>
-                        <!-- <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p> -->
-                        <h4>优秀课程: C语言、单片机、EDA、嵌入式系统</h4>
-                        <h4>英语水平: 大学英语四级</h4>
-                    </li>
-                </ul>
-            </div>
-            <div class="work info-unit right-list">
-                <h2 class="info-header"><i class="iconfont">&#xeac9;</i> <span class="info-title">开发经历</span></h2>
-                <hr>
-                <ul class="experience-list">
-                    <li>
-                        <h3>基于FPGA的VGA图像显示控制器</h3>
-                        <p>以Cyclone II芯片作为控制器的图像显示系统，利用FPGA输出图像数据控制VGA显示器显示图像
-                        </p>
-                    </li>
-                    <li>
-                        <h3>基于单片机的点阵设计 </h3>
-                        <p>以STC89C52单片机为主控，控制16*16点阵通过不同的方式显示点阵数据，可用作
-                          广告牌。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>手机蓝牙控制的智能小车 </h3>
-                        <p>以STC89C52单片机作为主控，控制电机驱动。使用HC-06蓝牙从机模块，和手机通讯，通过手机控制小车移动
-                        </p>
-                    </li>
-                    <li>
-                        <h3>基于PCA算法的特定人脸识别 </h3>
-                        <p>通过PCA算法提取训练库照片特征向量，形成特征空间，将待识别照片投影到该空间，最后利用N维空间的欧式距离公式找出最佳匹配。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>简易无线话筒设计 </h3>
-                        <p>驻极体话筒获取声音，利用9018三极管及相关元件组成电容三点式振荡电路，产生的高频波从天线向外发射。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>基于51单片机的频率计设计 </h3>
-                        <p>以STC89C52单片机作为核心，通过外接的电路模块获取电平高低状态，通过单片机内部计数器测量频率，理论值为0~65536Hz,实测在1%误差下测频范围为0~65000Hz.
-                        </p>
-                    </li>
-                </ul class="experience-list">
-            </div>
-            <div class="project info-unit right-list">
-                <h2 class="info-header"><i class="iconfont">&#xeaf4;</i> <span class="info-title">个人项目</span></h2>
-                <hr>
-                <ul class="experience-list">
-                    <li>
-                        <h3>基于 Qt 5 的文本编辑器</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            <br/>
-                        </p>
-                    </li>
-                    <li>
-                        <h3>基于 Flask 的主机监视系统</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </li>
-                    <li>
-                        <h3>基于 Live2D 与 clmtrackr 的山寨 Facerig</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </li>
-                    <li>
-                        <h3>如果项目太少，可以在实验楼上找项目做啊:D</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div class="trophy info-unit">
-                <h2 class="info-header"><i class="iconfont">&#xe80b;</i> <span class="info-title">奖项与证书</span></h2>
-                <hr>
-                <ul class="experience-list">
-                    <li>
-                        <h3>小学生作文二等奖</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>曾获统一冰红茶“再来一瓶”奖</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>这一行也是为了凑版面</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
-                    </li>
-            </div>
-            <div class="aboutme info-unit right-paragraph">
-                <h2 class="info-header"><i class="iconfont">&#xec0a;</i> <span class="info-title">自我评价</span></h2>
-                <hr>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-        </div>
+	<div id="wrapper">
+            <h1>cyang</h1>
+            <h2>just do IT</h2>
+            <p><a href="https//blog.cyang.tech" target="_blank">Blog</a></p>
+            <p><a href="https://github.com/cyang812" target="_blank">Github</a></p>
+            <p><a href="https://about.cyang.tech" target="_blank">about me</a></p>
+            <!-- <p><a href="https://twitter.com/youyuxi" target="_blank">Twitter</a></p> -->
+            <!-- <p><a href="https://www.zhihu.com/people/evanyou/" target="_blank">知乎</a></p> -->
     </div>
-</body>
 
-</html>
+	<canvas></canvas>
+        <script>
+            document.addEventListener('touchmove', function (e) {
+                e.preventDefault()
+            })
+            var c = document.getElementsByTagName('canvas')[0],
+                x = c.getContext('2d'),
+                pr = window.devicePixelRatio || 1,
+                w = window.innerWidth,
+                h = window.innerHeight,
+                f = 90,
+                q,
+                m = Math,
+                r = 0,
+                u = m.PI*2,
+                v = m.cos,
+                z = m.random
+            c.width = w*pr
+            c.height = h*pr
+            x.scale(pr, pr)
+            x.globalAlpha = 0.6
+            function i(){
+                x.clearRect(0,0,w,h)
+                q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
+                while(q[1].x<w+f) d(q[0], q[1])
+            }
+            function d(i,j){   
+                x.beginPath()
+                x.moveTo(i.x, i.y)
+                x.lineTo(j.x, j.y)
+                var k = j.x + (z()*2-0.25)*f,
+                    n = y(j.y)
+                x.lineTo(k, n)
+                x.closePath()
+                r-=u/-50
+                x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
+                x.fill()
+                q[0] = q[1]
+                q[1] = {x:k,y:n}
+            }
+            function y(p){
+                var t = p + (z()*2-1.1)*f
+                return (t>h||t<0) ? y(p) : t
+            }
+            document.onclick = i
+            document.ontouchstart = i
+            i()
+        </script>
+
+</body>
+</html>>
