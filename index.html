@@ -1,135 +1,290 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>cyang's space</title>
+<!DOCTYPE HTML>
+<!--
+	Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:mailto="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>cyang</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
 
-	<style>
-        html, body {
-            overflow: hidden;
-            margin: 0;
-        }
-        body {
-            font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
-            color: #333;
-        }
-        #wrapper {
-            position: absolute;
-            left: 0;
-            width: 320px;
-            text-align: center;
-            top: 50%;
-            left: 50%;
-            margin-left: -160px;
-            margin-top: -160px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-        h1 {
-            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 700;
-            font-size: 30px;
-            letter-spacing: 9px;
-            text-transform: uppercase;
-            margin: 12px 0;
-            left: 4px;
-        }
-        h2 {
-            color: #999;
-            font-weight: normal;
-            font-size: 15px;
-            letter-spacing: .12em;
-            margin-bottom: 30px;
-            left: 3px;
-        }
-        h1, h2 {
-            position: relative;
-        }
-        p {
-            font-size: 14px;
-            line-height: 2em;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        a {
-            color: #999;
-            text-decoration: none;
-            transition: color .2s ease;
-        }
-        a:hover {
-            color: #f33;
-        }
-    </style>
-</head>
-<body>
+		<!-- Header -->
+			<header id="header">
+				<a id="cyang-header" href="#">cyang</a>
+				<nav>
+					<ul id="ul-header">
+						<li><a href="#intro">Intro</a></li>
+						<li><a href="#one">Who I Am</a></li>
+						<li><a href="#two">What I Like</a></li>
+						<li><a href="#work">Photos</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li><a target="_blank" href="http://cyang.tech">Blog</a></li>
+					</ul>
+				</nav>
+			</header>
 
-	<div id="wrapper">
-            <h1>cyang</h1>
-            <h2>just do IT</h2>
-            <p><a href="https//blog.cyang.tech" target="_blank">Blog</a></p>
-            <p><a href="https://github.com/cyang812" target="_blank">Github</a></p>
-            <p><a href="https://about.cyang.tech" target="_blank">about me</a></p>
-            <!-- <p><a href="https://twitter.com/youyuxi" target="_blank">Twitter</a></p> -->
-            <!-- <p><a href="https://www.zhihu.com/people/evanyou/" target="_blank">知乎</a></p> -->
-    </div>
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
+				<div class="content">
+					<header>
+						<h2>Hey.</h2>
+					</header>
+					<!-- <p style="font-family:'微软雅黑'">
+                        天色微微向晚，天上飘着懒洋洋的云彩。下半截沉在黑暗里，上半截仍浮在阳光中。
+                        那一天我21岁，在我一生的黄金时代。 我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。
+                        后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。
+                        可是我过二十一岁生日时没有预见这一点。我觉得自己会永远生猛下去，什么也锤不了我。
+					</p> -->
+                    
+                    <div id="show"></div>
+                    <script type="text/javascript">
+                        var str="天色微微向晚，天上飘着懒洋洋的云彩。下半截沉在黑暗里，上半截仍浮在阳光中。"+
+                        "那一天我21岁，在我一生的黄金时代。 我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。"+
+                        "后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。"+
+                        "可是我过二十一岁生日时没有预见这一点。我觉得自己会永远生猛下去，什么也锤不了我。";
+                        var len=str.length;
+                        var i=1;
+                        function showword(){
+                            document.getElementById("show").innerHTML=str.substr(0,i);
+                            i++;
+                            if(i>len){
+                                clearInterval("done");
+                            }
+                        }
+                        var done=setInterval("showword()",150);
+                    </script>
+					<footer>
+						<a href="#one" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
 
-	<canvas></canvas>
-        <script>
-            document.addEventListener('touchmove', function (e) {
-                e.preventDefault()
-            })
-            var c = document.getElementsByTagName('canvas')[0],
-                x = c.getContext('2d'),
-                pr = window.devicePixelRatio || 1,
-                w = window.innerWidth,
-                h = window.innerHeight,
-                f = 90,
-                q,
-                m = Math,
-                r = 0,
-                u = m.PI*2,
-                v = m.cos,
-                z = m.random
-            c.width = w*pr
-            c.height = h*pr
-            x.scale(pr, pr)
-            x.globalAlpha = 0.6
-            function i(){
-                x.clearRect(0,0,w,h)
-                q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
-                while(q[1].x<w+f) d(q[0], q[1])
-            }
-            function d(i,j){   
-                x.beginPath()
-                x.moveTo(i.x, i.y)
-                x.lineTo(j.x, j.y)
-                var k = j.x + (z()*2-0.25)*f,
-                    n = y(j.y)
-                x.lineTo(k, n)
-                x.closePath()
-                r-=u/-50
-                x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
-                x.fill()
-                q[0] = q[1]
-                q[1] = {x:k,y:n}
-            }
-            function y(p){
-                var t = p + (z()*2-1.1)*f
-                return (t>h||t<0) ? y(p) : t
-            }
-            document.onclick = i
-            document.ontouchstart = i
-            i()
-        </script>
+		<!-- One -->
+			<section id="one" class="main style2 right dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>whoami</h2>
+					</header>
+					<table border="1" style="font-family: '微软雅黑'">
+						<tr>
+							<td>来自</td>
+							<td>云南 昆明</td>
+						</tr>
+                        <tr>
+                            <td>现居</td>
+                            <td>广东 深圳</td>
+                        </tr>
+						<tr>
+							<td>年龄</td>
+							<td>forever 22</td>
+						</tr>
+						<tr>
+							<td>学历</td>
+							<td>华侨大学 本科</td>
+						</tr>
+						<tr>
+							<td>专业</td>
+							<td>电子信息工程</td>
+						</tr>
+					</table>
+				</div>
+				<a href="#two" class="button style2 down anchored">Next</a>
+			</section>
 
-</body>
-</html>>
+		<!-- Two -->
+			<section id="two" class="main style2 left dark fullscreen">
+				<div class="content box style2" id="tagsList">
+					<header>
+						<h2 id="what-I-like">What Am I Doing</h2>
+					</header>
+					<!--<style>-->
+						<!--body{background:#16a085; padding:0px;}-->
+						<!--#tagsList {position:relative; width:550px; height:550px; margin: -50px auto; background: #95a5a6;-->
+							 <!-- -webkit-border-radius: 100px;-->
+							<!--border-radius: 100px;}-->
+						<!--#tagsList a {position:absolute; top:0px; left:0px; font-family: Microsoft YaHei;-->
+								<!--color:#fff; font-weight:bold;text-decoration:none; padding: 3px 6px; }-->
+						<!--#tagsList a:hover { color:#FF0000; letter-spacing:2px;}-->
+					<!--</style>-->
+					<img src="images/raspberrypi.jpg" width="300" height="200">
+					<p id="item">Learning Raspberry Pi</p>
+				</div>
+				<a href="#work" class="button style2 down anchored">Next</a>
+			</section>
+
+		<!-- Work -->
+			<section id="work" class="main style3 primary">
+				<div class="content">
+					<header>
+						<h2>My photos</h2>
+						<table border="1">
+							<tr>
+								<td>Devices</td>
+								<td>Fujifilm S4850|Nexus 5|IUNI U2|MEIZU MX3|Lenovo A850</td>
+							</tr>
+						</table>
+					</header>
+
+					<!-- Gallery  -->
+						<div class="gallery">
+							<article class="from-left">
+								<a href="http://ok9v4xmq7.bkt.clouddn.com/01.jpg" class="image fit"><img src="http://ok9v4xmq7.bkt.clouddn.com/01.jpg" height="276" width="440" title="夕阳无限好" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="http://ok9v4xmq7.bkt.clouddn.com/02.jpg" class="image fit"><img src="http://ok9v4xmq7.bkt.clouddn.com/02.jpg" height="276" width="440" title="深圳" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="http://ok9v4xmq7.bkt.clouddn.com/03.jpg" class="image fit"><img src="http://ok9v4xmq7.bkt.clouddn.com/03.jpg" height="276" width="440" title="晚霞" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="http://ok9v4xmq7.bkt.clouddn.com/04.jpg" class="image fit"><img src="http://ok9v4xmq7.bkt.clouddn.com/04.jpg" height="276" width="440" title="多云" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="http://ok9v4xmq7.bkt.clouddn.com/05.jpg" class="image fit"><img src="http://ok9v4xmq7.bkt.clouddn.com/05.jpg" height="276" width="440" title="华侨大学" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="http://ok9v4xmq7.bkt.clouddn.com/06.jpg" class="image fit"><img src="http://ok9v4xmq7.bkt.clouddn.com/06.jpg" height="276" width="440" title="海水真咸" alt="" /></a>
+							</article>
+						</div>
+
+                        <!--<div class="gallery">-->
+                            <!--<article class="from-left">-->
+                                <!--<a href="images/fulls/01.jpg" class="image fit"><img src="images/fulls/01.jpg" height="276" width="440" title="夕阳无限好" alt="" /></a>-->
+                            <!--</article>-->
+                            <!--<article class="from-right">-->
+                                <!--<a href="images/fulls/02.jpg" class="image fit"><img src="images/fulls/02.jpg" height="276" width="440" title="深圳" alt="" /></a>-->
+                            <!--</article>-->
+                            <!--<article class="from-left">-->
+                                <!--<a href="images/fulls/03.jpg" class="image fit"><img src="images/fulls/03.jpg" height="276" width="440" title="晚霞" alt="" /></a>-->
+                            <!--</article>-->
+                            <!--<article class="from-right">-->
+                                <!--<a href="images/fulls/04.jpg" class="image fit"><img src="images/fulls/04.jpg" height="276" width="440" title="多云" alt="" /></a>-->
+                            <!--</article>-->
+                            <!--<article class="from-left">-->
+                                <!--<a href="images/fulls/05.jpg" class="image fit"><img src="images/fulls/05.jpg" height="276" width="440" title="华侨大学" alt="" /></a>-->
+                            <!--</article>-->
+                            <!--<article class="from-right">-->
+                                <!--<a href="images/fulls/06.jpg" class="image fit"><img src="images/fulls/06.jpg" height="276" width="440" title="海水真咸" alt="" /></a>-->
+                            <!--</article>-->
+                        <!--</div>-->
+
+					<table id="table-photos">
+						<tr>
+							<td>More photos:</td>
+							<td><a target="_blank" href="http://cy950812.lofter.com/">Lofter</a> | <a target="_blank" href="https://www.instagram.com/c_yang_hen/">Instagram</a></td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+
+		<!-- Contact -->
+			<section id="contact" class="main style3 secondary">
+				<div class="content">
+					<header>
+						<h2>Say Hello.</h2>
+						<p>You can find me in these websites!</p>
+						<!--<div class="wrap">-->
+							<!--<div class="type-wrap">-->
+								<!--<div id="typed-strings">-->
+									<!--<span><T></T>you can find me in these websites! <strong>Say hello</strong> ...</span>-->
+									<!--<p>you can find me in these websites! <strong>Say hello</strong> ...</p>-->
+									<!--<p>you can find me in these websites! <strong>Say hello</strong> ...</p>-->
+									<!--<p>you can find me in these websites! <strong>Say hello</strong> ...</p>-->
+								<!--</div>-->
+								<!--<span id="typed" style="white-space:pre;"></span>-->
+							<!--</div>-->
+						<!--</div>-->
+					</header>
+					<div id="left" align="left">
+						<ul>
+							<!-- <li>邮箱：<a target="_blank" href="mailto:cy950812@qq.com?subject=Hello">cy950812@qq.com</a></li> -->
+							<!-- <li>Q Q ：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1018225817&amp;site=qq&amp;menu=yes">1018225817</a></li> -->
+							<!-- <li>知乎：<a target="_blank" href="http://www.zhihu.com/people/cyang812">@陳揚</a></li> -->
+							<!-- <li>微博：<a target="_blank" href="http://weibo.com/u/1724789270">@cyang812</a></li> -->
+							<li>豆瓣：<a target="_blank" href="https://www.douban.com/people/cyang812/">@C.yang</a></li>
+							<li>Twitter：<a target="_blank" href="https://twitter.com/cyang812">@cyang812</a></li>
+							<li>Github：<a target="_blank" href="https://github.com/cyang812">@cyang812</a></li>
+							<li>Telegram：<a target="_blank" href="https://telegram.me/cyang812">@cyang812</a></li>
+						</ul>
+					</div>
+					<div id="right" align="left">
+						<p id="info" >more info about me</p>
+						<a id="cyang-tech" href="http://cyang.tech">cyang.tech</a>
+					</div>
+					<style>
+						#left{
+							line-height:30px;
+							/*background-color:#eeeeee;*/
+							font-family: 微软雅黑;
+							height:300px;
+							width:300px;
+							float:left;
+							padding:5px;
+						}
+						#right{
+							width:350px;
+							float:left;
+							padding:5px;
+							font-family: 微软雅黑 sans-serif;
+						}
+						#info{
+							font-size: x-large;
+							color: #39454b;
+							font-family: Consolas;
+						}
+						#cyang-tech{
+							font-size: 50px;
+							font-style: italic;
+							font-family: Consolas;
+						}
+					</style>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+
+				<!-- Icons -->
+					<ul class="actions">
+						<li><a target="_blank" href="https://twitter.com/1018225817" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a target="_blank" href="https://www.facebook.com/cyang812" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a target="_blank" href="https://www.instagram.com/c_yang_hen/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a target="_blank" href="http://cyang.tech" class="icon fa-pencil" ></a></li>
+					</ul>
+
+				<!-- time -->
+					<div id="show-time">
+						<span id="span_dt_dt"></span>
+					</div>
+
+				<!-- Menu -->
+					<ul class="menu">
+						<li>&copy; <a href="http://cyang.tech" >cyang</a> </li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="assets/js/tagcloud.js"></script>
+			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+			<script src="assets/js/typed.js" type="text/javascript"></script>
+			<script src="assets/js/show_date_time.js"></script>
+	</body>
+</html>
